@@ -1,0 +1,11 @@
+---
+const { frontmatter } = Astro.props;
+---
+
+<div class="w-full">
+  <div class="container px-8 mt-4 mx-auto">
+    <h1 class="text-lg font-bold">{frontmatter.title}</h1>
+    <span class="italic">{frontmatter.pubDate.slice(0, 10)}</span>
+    <slot />
+  </div>
+</div>

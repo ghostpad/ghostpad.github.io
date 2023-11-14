@@ -1,0 +1,8 @@
+.mobile-nav {
+    transition: all 200ms ease-in-out;
+}
+
+#burger-menu:checked ~ .mobile-nav {
+  max-height: 200px;
+  padding: 12px 0;
+}

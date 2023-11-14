@@ -1,0 +1,33 @@
+---
+import ghostpadLogo from "../svg/ghostpad_logo.svg";
+import ghostpadText from "../svg/ghostpad_text.svg";
+import Nav from "./Nav.astro";
+import "../styles/header.css";
+---
+
+<div class="sticky top-0 flex flex-col justify-center items-center bg-white">
+  <div class="container w-full h-16 flex">
+    <a href="/" class="flex">
+      <img src={ghostpadLogo.src} class="h-full ml-8 mr-2 py-1" />
+      <img src={ghostpadText.src} class="h-6 mt-1.5 self-center" />
+    </a>
+    <div class="flex-grow items-center justify-end px-8 flex">
+      <div class="block md:hidden">
+        <label for="burger-menu" class="block w-10 p-2 cursor-pointer">
+          <div class="bg-black w-full h-1 mb-1"></div>
+          <div class="bg-black w-full h-1 mb-1"></div>
+          <div class="bg-black w-full h-1"></div>
+        </label>
+      </div>
+      <div class="hidden md:block space-x-2">
+        <Nav />
+      </div>
+    </div>
+  </div>
+  <input type="checkbox" class="hidden" id="burger-menu" />
+  <div
+    class="mobile-nav bg-white max-h-0 flex text-center flex-col space-y-3 overflow-hidden"
+  >
+    <Nav />
+  </div>
+</div>
