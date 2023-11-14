@@ -16,4 +16,4 @@ I'm hosting on Github Pages, not running a line of Javascript within the site it
 
 &nbsp;
 
-Although Ghostpad itself is released under the AGPL license for compatibility with its parent project, KoboldAI, the source for this website is released under the MIT license at https://github.com/ghostpad/ghostpad-site
+Although Ghostpad itself is released under the AGPL license for compatibility with its parent project, KoboldAI, the source for this website is released under the MIT license at https://github.com/ghostpad/ghostpad.github.io
