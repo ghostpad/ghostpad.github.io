@@ -1,19 +1,15 @@
 ---
-title: 'Ghostpad has a website!'
-pubDate: 2023-11-14
+title: 'Ghostpad is now a hard fork (with better conflict resolution)'
+pubDate: 2024-02-12
 layout: ../../layouts/NewsLayout.astro
 ---
 
-I wanted to build a minimalistic static site that could be broken up into reusable parts, and I was worried that it might be a huge pain. I've built many Wordpress sites before, and really didn't want to go down that road again. Jekyll and Hugo seemed like decent options, but would have involved adding dependencies on Ruby or Go tooling - not the end of the world, but not ideal. Gatsby seemed to be a bit heavy-duty for what I'm trying to accomplish, and they aren't subtle about their desire to sell me cloud services. I'm just trying to spit out some HTML files here.
+One of the most challenging aspects of building Ghostpad has been enabling each setting to be changed in real time, and allowing changes from other clients to be received and properly applied to the UI in real time. Previously, I used a combination of timestamps and a ignore-list of changes that the client already knows to be outdated. These were fragile, temporary solutions that were put in place to minimize the backend changes required to create the experience I wanted.
 
 &nbsp;
 
-So I came across Astro, which seems to do everything I need within the Typescript ecosystem. Support for Markdown, React, Vue, Svelte, ".astro" templates that aren't tied to any frameworks, fancy CSS scoping... This is kind of awesome. I think I've found my solution.
+With the latest revision of Ghostpad, each setting that can be changed, including each chunk of text, has its own "sequence number". When you change a setting locally, this number increases and is sent to the server. When a change is received, its sequence number is checked, and if it is lower than the local sequence number, it is discarded. This results in a "last write wins" conflict resolution strategy.
 
 &nbsp;
 
-I'm hosting on Github Pages, not running a line of Javascript within the site itself, and I feel like I've accomplished my goal of building some plain old HTML files without over-engineering anything. 🎉
-
-&nbsp;
-
-Although Ghostpad itself is released under the AGPL license for compatibility with its parent project, KoboldAI, the source for this website is released under the MIT license at https://github.com/ghostpad/ghostpad.github.io
+What does this mean in simple terms? It means the real-time nature of Ghostpad is now implemented in a more stable manner that should result in less buggy behavior in slow network conditions.
